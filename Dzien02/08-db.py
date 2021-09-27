@@ -4,6 +4,7 @@ import psycopg2
 import datetime
 
 conn = psycopg2.connect()
+conn.set_session(autocommit=True)
 cursor = conn.cursor()
 
 # operacja na danych
@@ -30,6 +31,16 @@ sql = """
 """
 data = ("Marianowo", datetime.datetime.today() )
 cursor.execute(sql, data)
+conn.commit()
+
+# UPDATE
+sql = "UPDATE public.city SET city=%s WHERE city=%s "
+cursor.execute(sql,  ("Marionowo City","Marianowo") )
+conn.commit()
+
+# DELETE
+sql = "DELETE FROM public.city WHERE city=%s"
+cursor.execute(sql, ("Marionowo City",) )
 conn.commit()
 
 cursor.close()
