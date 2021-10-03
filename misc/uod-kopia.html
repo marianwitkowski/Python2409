@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{NAZWA_PLIKU}</title>
+
+</head>
+<body leftmargin="50px" rightmargin="50px">
+
+<style type="text/css">
+    body {
+        font-family: "Times New Roman";
+        font-size : 16px;
+        line-height: 22px;
+    }
+</style>
+
+<table width="100%" border="0" cellspacing="5">
+    <tr>
+        <td width="50%" valign="top">
+            <b>WYSTAWIŁ:</b><br/>
+            {IMIE_NAZWISKO}<br/>
+            {ADRES}<br/>
+            {MIASTO}<br/>
+            PESEL {PESEL}
+        </td>
+        <td align="right" valign="top">
+            <b><i>Warszawa, {DATA_PRZELEW}</i></b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><center><h3>RACHUNEK DO UMOWY O DZIEŁO<br/>NR {UMOWA_NR}</h3></center></td>
+    </tr>
+    <tr>
+        <td width="50%">&nbsp;</td>
+        <td width="50%">
+            <i><b>Dane Zamawiającego</b><br/>
+            XXXXXX sp z o.o.<br/>
+            ul. YYYYYYYY<br/>
+            80-755 Gdańsk<br/>
+            NIP:AAAAAAAA<br/></i>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr size="-1" width="100%"></td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">za wykonanie dzieła i przeniesienia praw autorskich do utworu pt:</td>
+        <td width="50%" valign="top"><b>UoD {UMOWA_NR} - {UMOWA_TYTUL}</b></td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">zgodnie z umową o dzieło z dnia</td>
+        <td width="50%" valign="top">{DATA_ZAWARCIA}</td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">odebranego protokolarnie w dniu</td>
+        <td width="50%" valign="top">{DATA_PRZELEW}</td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr size="-1" width="100%"></td>
+    </tr>
+
+    <tr>
+        <td width="50%" valign="top">Wynagrodzenie brutto [zł]</td>
+        <td width="50%" valign="top">{KWOTA_BRUTTO}</td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">Koszty uzyskania przychodu (50%) [zł]</td>
+        <td width="50%" valign="top">{KWOTA_KUP}</td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">Podstawa opodatkowania [zł]</td>
+        <td width="50%" valign="top">{KWOTA_PODSTAWA}</td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">Zaliczka na podatek [zł]</td>
+        <td width="50%" valign="top">{KWOTA_ZALICZKA_PIT}</td>
+    </tr>
+    <tr>
+        <td width="50%" valign="top">Do wypłaty [zł]</td>
+        <td width="50%" valign="top">{KWOTA_NETTO}</td>
+    </tr>
+    <tr>
+        <td colspan="2"><i>Wystawca oświadcza iż nie przekroczył w roku podatkowym 1/2 kwoty
+o której mowa w art. 26 ust. 1 pkt. 2 lit. b ustawy o podatku dochodowym od osób fizycznych</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><br/><br/><br/>Podpis</td>
+    </tr>
+</table>
+</body>
+</html>
