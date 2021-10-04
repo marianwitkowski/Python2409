@@ -28,3 +28,38 @@ for index, row in enumerate(sheet.iter_rows()):
     adres = row[9].value
     miasto = row[10].value
     pesel = row[11].value
+
+    with open("../misc/uod-kopia.html", "rt", encoding="UTF8") as fd:
+        template = fd.read()
+        template = template.replace("{IMIE_NAZWISKO}", imie_nazwisko)
+        template = template.replace("{ADRES}", adres)
+        template = template.replace("{MIASTO}", miasto)
+        template = template.replace("{DATA_PRZELEW}", data_koniec)
+        template = template.replace("{UMOWA_NR}", nr)
+        template = template.replace("{DATA_ZAWARCIA}", data_start)
+        template = template.replace("{KWOTA_BRUTTO}", data_start)
+        template = template.replace("{KWOTA_KUP}", kup)
+        template = template.replace("{KWOTA_NETTO}", netto)
+
+        file_name = f"out/rachunek_{nr.replace('/','_')}.pdf"
+        pdfkit.from_string(template, file_name)
+
+    vars = {
+        "{NR_UMOWY}" : nr,
+        "{DATA_ZAWARCIA}" : data_start,
+        "{TYTUL}" : tytul,
+        "{KWOTA_BRUTTO}" : brutto
+    }
+    docx = Document("../misc/uod_tpl-kopia.docx")
+    for p in docx.paragraphs:
+        inline = p.runs
+        for i in range(len(inline)):
+            text = inline[i].text
+            for k in vars.keys():
+                text = text.replace(k, vars[k])
+                inline[i].text = text
+
+    file_name = f"out/umowa_{nr.replace('/', '_')}.docx"
+    docx.save(file_name)
+
+
